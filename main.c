@@ -60,31 +60,57 @@ int main(int argc, const char * argv[]) {
     typedef struct node* NodePtr;
     NodePtr tmp=head; //add temp value to faciliate
         
-    /*  Exercise III Use loop to print everything
-        int i,n=5;
-        for(i=0;i<n;i++){
-            printf("%3d", tmp->value);
-          // What is missing???
-        }
-    */
+    //Exercise III Use loop to print everything
+    int i,n=5;
+    for(i=0;i<n;i++){
+        printf("%-3d", tmp->value);
+        tmp=tmp->next;
+    }
+    printf("\n");
+    //Exercise IV change to while loop!! (you can use NULL to help)
+    tmp=head; //ชี้ตัวแรก
+    while(tmp!=NULL){
+        printf("%-3d", tmp->value);
+        tmp=tmp->next;
+    }
+    printf("\n");
     
-   /*  Exercise IV change to while loop!! (you can use NULL to help)
-       
-         while(){
-            printf("%3d", tmp->value);
-           // What is missing???
-        }
-    */
-    
- /*  Exercise V Use malloc to create all nodes, instead of create a struct!!
+    /*Exercise V Use malloc to create all nodes, instead of create a struct!!
          //use a loop to help
-          
      */
+    printf("Create by malloc\n");
+    NodePtr temp;
+    head=(NodePtr)malloc(sizeof(struct node));
+    temp=head;
 
-    /*  Exercise VI Free all node !!
-         //use a loop to help
-          
-     */
-    
+    n=10;
+    for(i=0;i<n;i++)
+    {
+        temp->value=7+(i*2);
+        // if(i==n-1) {
+        //     temp->next = NULL; // ตัวสุดท้ายให้เป็น NULL
+        // }else{
+            temp->next=(NodePtr)malloc(sizeof(struct node));
+            temp=temp->next;
+        // }
+    }
+    temp->value=7+(i*2);
+    temp->next = NULL;
+
+    temp=head; //ชี้ตัวแรก
+    while(temp!=NULL){
+        printf("%-3d", temp->value);
+        temp=temp->next;
+    }
+    printf("\n");
+
+    /*Exercise VI Free all node !!
+         //use a loop to help     
+    */
+    while(head!=NULL){
+        temp=head;
+        head=head->next;
+        free(temp);
+    }
     return 0;
 }
