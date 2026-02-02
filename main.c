@@ -17,19 +17,46 @@ int main(int argc, const char * argv[]) {
     head=&a;
     b.value=head->value+3;
 
-    printf("%d\n", head ->value ); //what value for 5
-    printf("%d\n", head ->next->value ); //what value for 8
-/*  Exercise I
+    
+    /*  Exercise I
     1. Add 1 more than at the end
     2. Add value(11)
     3. Make next become NULL
  */
+    struct node d;
+    d.value=11;
+    b.next=&d;
+    d.next=NULL;
+    printf("%d\n", head ->value ); //what value for 5
+    printf("%d\n", head ->next->value ); //what value for 8
+    printf("%d\n", head ->next->next->value ); //what value for 11
     
-/*  Exercise II
+    /*  Exercise II
         1. Add 1 more than at the begining!!!!
         2. Add value (2)
         
 */
+    printf("Insert in front\n");
+    struct node e;
+    e.value=2;
+    e.next=&a;
+    head=&e;
+    printf("%d\n", head ->value ); //what value for 2
+    printf("%d\n", head ->next->value ); //what value for 5
+    printf("%d\n", head ->next->next->value ); //what value for 8
+    printf("%d\n", head ->next->next->next->value ); //what value for 11
+
+    printf("Insert in middle\n");
+    struct node f;
+    f.value=7;
+    f.next=&b;
+    a.next=&f;
+    printf("%d\n", head ->value ); //what value for 2
+    printf("%d\n", head ->next->value ); //what value for 5
+    printf("%d\n", head ->next->next->value ); //what value for 7
+    printf("%d\n", head ->next->next->next->value ); //what value for 8
+    printf("%d\n", head ->next->next->next->next->value ); //what value for 11
+
     typedef struct node* NodePtr;
     NodePtr tmp=head; //add temp value to faciliate
         
