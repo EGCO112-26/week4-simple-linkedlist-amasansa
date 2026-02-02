@@ -8,7 +8,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "node.h"
-#include "node.h"
 
 int main(int argc, const char * argv[]) {
     int c=5;
